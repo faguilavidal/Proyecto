@@ -10,20 +10,18 @@ public class Usuario {
     private int rut;
     private String nombre;
     private String email;
-    private int estadoEmail;
     private int estadousuario;
     private  int idTipoUsuario;
 
     public Usuario() {
     }
 
-    public Usuario(String usuario, String contraseña, int rut, String nombre, String email, int estadoEmail, int estadousuario, int idTipoUsuario) {
+    public Usuario(String usuario, String contraseña, int rut, String nombre, String email, int estadousuario, int idTipoUsuario) {
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.rut = rut;
         this.nombre = nombre;
         this.email = email;
-        this.estadoEmail = estadoEmail;
         this.estadousuario = estadousuario;
         this.idTipoUsuario = idTipoUsuario;
     }
@@ -68,14 +66,6 @@ public class Usuario {
         this.email = email;
     }
 
-    public int getEstadoEmail() {
-        return estadoEmail;
-    }
-
-    public void setEstadoEmail(int estadoEmail) {
-        this.estadoEmail = estadoEmail;
-    }
-
     public int getEstadousuario() {
         return estadousuario;
     }
@@ -101,7 +91,7 @@ public class Usuario {
     }
     
     public int registrarUsuarioBLL(String usuario,String contraseña,int rut, String nombre,String email){
-        Usuario u = new Usuario(usuario,contraseña,rut,nombre,email,0,0,0);
+        Usuario u = new Usuario(usuario,contraseña,rut,nombre,email,0,0);
         return new DAL.UsuarioDAL().insertUser(u);
     }
     

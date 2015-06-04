@@ -33,9 +33,8 @@ public class UsuarioDAL {
                 u.setRut(User.getInt(3));
                 u.setNombre(User.getString(4));
                 u.setEmail(User.getString(5));
-                u.setEstadoEmail(User.getInt(6));
-                u.setEstadousuario(User.getInt(7));
-                u.setIdTipoUsuario(User.getInt(8));
+                u.setEstadousuario(User.getInt(6));
+                u.setIdTipoUsuario(User.getInt(7));
                 return u;
             }
             else
@@ -64,9 +63,8 @@ public class UsuarioDAL {
                 u.setRut(User.getInt(3));
                 u.setNombre(User.getString(4));
                 u.setEmail(User.getString(5));
-                u.setEstadoEmail(User.getInt(6));
-                u.setEstadousuario(User.getInt(7));
-                u.setIdTipoUsuario(User.getInt(8));
+                u.setEstadousuario(User.getInt(6));
+                u.setIdTipoUsuario(User.getInt(7));
                 return u;
             }
             else
@@ -83,7 +81,7 @@ public class UsuarioDAL {
     public int insertUser(BLL.Usuario u){
         try
         {
-            String sql = "insert into usuario values(?,?,?,?,?,0,0,0)";
+            String sql = "insert into usuario values(?,?,?,?,?,0,0)";
             PreparedStatement insert = conn.crearSentencia(sql);
             insert.setString(1,u.getUsuario());
             insert.setString(2, u.getContraseña());
