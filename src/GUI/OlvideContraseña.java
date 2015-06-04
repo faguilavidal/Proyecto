@@ -141,7 +141,7 @@ public class OlvideContraseña extends javax.swing.JFrame {
                 message.setRecipients(Message.RecipientType.TO,
                         InternetAddress.parse(u.getEmail()));
                 message.setSubject("Envio de contraseña olvidada");
-                message.setText("Nos ha llegado una solicitud de contraseña: \nTu usuario es: " + u.getUsuario() + "\nY tu Contraseña es: " + u.getContraseña() + "\n \n Administracion CINEDEMARK");
+                message.setText("Nos ha llegado una solicitud de contraseña: \nTu usuario es: " + u.getRut()+ "\nY tu Contraseña es: " + u.getContraseña() + "\n \n Administracion CINEDEMARK");
 
                 Transport.send(message);
                 JOptionPane.showMessageDialog(this, "La contraseña ha sido enviada a su correo electronico", "Envio de Contraseña", JOptionPane.INFORMATION_MESSAGE);

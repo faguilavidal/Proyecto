@@ -5,41 +5,27 @@ package BLL;
  * @author Fabian Aguila
  */
 public class Usuario {
-    private String usuario;
-    private String contraseña;
     private int rut;
+    private String contraseña;
     private String nombre;
+    private String apellido;
     private String email;
     private int estadousuario;
-    private  int idTipoUsuario;
+    private int idTipoUsuario;
+    private int idSucursal;
 
     public Usuario() {
     }
 
-    public Usuario(String usuario, String contraseña, int rut, String nombre, String email, int estadousuario, int idTipoUsuario) {
-        this.usuario = usuario;
-        this.contraseña = contraseña;
+    public Usuario(int rut, String contraseña, String nombre, String apellido, String email, int estadousuario, int idTipoUsuario, int idSucursal) {
         this.rut = rut;
+        this.contraseña = contraseña;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.email = email;
         this.estadousuario = estadousuario;
         this.idTipoUsuario = idTipoUsuario;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.idSucursal = idSucursal;
     }
 
     public int getRut() {
@@ -50,12 +36,28 @@ public class Usuario {
         this.rut = rut;
     }
 
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getEmail() {
@@ -81,6 +83,14 @@ public class Usuario {
     public void setIdTipoUsuario(int idTipoUsuario) {
         this.idTipoUsuario = idTipoUsuario;
     }
+
+    public int getIdSucursal() {
+        return idSucursal;
+    }
+
+    public void setIdSucursal(int idSucursal) {
+        this.idSucursal = idSucursal;
+    }
     
     public Usuario buscarUserUsuario(String usuario){
         return new DAL.UsuarioDAL().buscarUserUsuario(usuario);
@@ -90,8 +100,8 @@ public class Usuario {
         return new DAL.UsuarioDAL().buscarUserEmail(email);
     }
     
-    public int registrarUsuarioBLL(String usuario,String contraseña,int rut, String nombre,String email){
-        Usuario u = new Usuario(usuario,contraseña,rut,nombre,email,0,0);
+    public int registrarUsuarioBLL(int rut, String contraseña, String nombre, String apellido, String email, int estadousuario, int idTipoUsuario, int idSucursal){
+        Usuario u = new Usuario(rut, contraseña, nombre, apellido, email, 0, 0,idSucursal);
         return new DAL.UsuarioDAL().insertUser(u);
     }
     

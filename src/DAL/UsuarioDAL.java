@@ -28,13 +28,14 @@ public class UsuarioDAL {
             if(User.next())
             {
                 BLL.Usuario u = new BLL.Usuario();
-                u.setUsuario(User.getString(1));
+                u.setRut(User.getInt(1));
                 u.setContraseña(User.getString(2));
-                u.setRut(User.getInt(3));
-                u.setNombre(User.getString(4));
+                u.setNombre(User.getString(3));
+                u.setApellido(User.getString(4));
                 u.setEmail(User.getString(5));
                 u.setEstadousuario(User.getInt(6));
                 u.setIdTipoUsuario(User.getInt(7));
+                u.setIdSucursal(User.getInt(8));
                 return u;
             }
             else
@@ -58,13 +59,14 @@ public class UsuarioDAL {
             if(User.next())
             {
                 BLL.Usuario u = new BLL.Usuario();
-                u.setUsuario(User.getString(1));
+                u.setRut(User.getInt(1));
                 u.setContraseña(User.getString(2));
-                u.setRut(User.getInt(3));
-                u.setNombre(User.getString(4));
+                u.setNombre(User.getString(3));
+                u.setApellido(User.getString(4));
                 u.setEmail(User.getString(5));
                 u.setEstadousuario(User.getInt(6));
                 u.setIdTipoUsuario(User.getInt(7));
+                u.setIdSucursal(User.getInt(8));
                 return u;
             }
             else
@@ -81,13 +83,14 @@ public class UsuarioDAL {
     public int insertUser(BLL.Usuario u){
         try
         {
-            String sql = "insert into usuario values(?,?,?,?,?,0,0)";
+            String sql = "insert into usuario values(?,?,?,?,?,0,0,?)";
             PreparedStatement insert = conn.crearSentencia(sql);
-            insert.setString(1,u.getUsuario());
+            insert.setInt(1,u.getRut());
             insert.setString(2, u.getContraseña());
-            insert.setInt(3, u.getRut());
-            insert.setString(4, u.getNombre());
+            insert.setString(3, u.getNombre());
+            insert.setString(4, u.getApellido());
             insert.setString(5, u.getEmail());
+            insert.setInt(6, u.getIdSucursal());
             return insert.executeUpdate();
         }
         catch(SQLException e)
