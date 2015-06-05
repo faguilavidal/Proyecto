@@ -117,7 +117,8 @@ public class OlvideContraseña extends javax.swing.JFrame {
     private void SendMail() {
         String Username = "cinedemark2015@gmail.com";
         String PassWord = "cinedemark123";
-        String usuario = jTextFieldUsuario.getText();
+        String user = jTextFieldUsuario.getText();
+        int usuario = Integer.parseInt(user);
         BLL.Usuario u = new BLL.Usuario().buscarUserUsuario(usuario);
         if(u != null)
         {

@@ -1,5 +1,7 @@
 package BLL;
 
+import DAL.UsuarioDAL;
+
 /**
  *
  * @author Fabian Aguila
@@ -100,8 +102,8 @@ public class Usuario {
         return new DAL.UsuarioDAL().buscarUserEmail(email);
     }
     
-    public int registrarUsuarioBLL(int rut, String contraseña, String nombre, String apellido, String email, int estadousuario, int idTipoUsuario, int idSucursal){
-        Usuario u = new Usuario(rut, contraseña, nombre, apellido, email, 0, 0,idSucursal);
+    public int registrarUsuarioBLL(int rut, String contraseña, String nombre, String apellido, String email, String Sucursal){
+        Usuario u = new Usuario(rut, contraseña, nombre, apellido, email, 0, 0,new UsuarioDAL().idSucursal(Sucursal));
         return new DAL.UsuarioDAL().insertUser(u);
     }
     

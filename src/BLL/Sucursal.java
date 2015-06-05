@@ -6,18 +6,20 @@ package BLL;
  */
 public class Sucursal {
     private int codigo;
+    private String nombre;
+    private String direccion;
     private  int codMall;
     private int codComuna;
-    private String direccion;
 
     public Sucursal() {
     }
 
-    public Sucursal(int codigo, int codMall, int codComuna, String direccion) {
+    public Sucursal(int codigo, String nombre, String direccion, int codMall, int codComuna) {
         this.codigo = codigo;
+        this.nombre = nombre;
+        this.direccion = direccion;
         this.codMall = codMall;
         this.codComuna = codComuna;
-        this.direccion = direccion;
     }
 
     public int getCodigo() {
@@ -26,6 +28,22 @@ public class Sucursal {
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public int getCodMall() {
@@ -43,12 +61,5 @@ public class Sucursal {
     public void setCodComuna(int codComuna) {
         this.codComuna = codComuna;
     }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
+    
 }

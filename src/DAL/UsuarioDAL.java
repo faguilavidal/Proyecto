@@ -21,7 +21,7 @@ public class UsuarioDAL {
     public BLL.Usuario buscarUserUsuario(int usuario){
         try
         {
-            String sql = "select * from usuario where usuario = ?";
+            String sql = "select * from usuario where rut = ?";
             PreparedStatement search = conn.crearSentencia(sql);
             search.setInt(1, usuario);
             ResultSet User = search.executeQuery();
@@ -96,6 +96,28 @@ public class UsuarioDAL {
         catch(SQLException e)
         {
             return e.getErrorCode();
+        }
+    }
+
+    public int idSucursal(String Sucursal) {
+        try
+        {
+            String sql = "Select idsucursal from sucursal where  = ?";
+            PreparedStatement obtener = conn.crearSentencia(sql);
+            obtener.setString(1, Sucursal);
+            ResultSet valor = obtener.executeQuery();
+            if(valor.next())
+            {
+                return valor.getInt(1);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        catch(SQLException e)
+        {
+            return -1;
         }
     }
 }

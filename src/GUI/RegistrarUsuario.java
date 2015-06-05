@@ -43,26 +43,28 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextFieldUsuario = new javax.swing.JTextField();
+        jLabelApellido = new javax.swing.JLabel();
+        jLabelContraseña = new javax.swing.JLabel();
+        jLabelConfirmarContraseña = new javax.swing.JLabel();
+        jLabelRut = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelEmail = new javax.swing.JLabel();
+        jTextFieldApellido = new javax.swing.JTextField();
         jTextFieldRut = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
         jPasswordFieldContraseña = new javax.swing.JPasswordField();
         jPasswordFieldConfContraseña = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        jButtonRegistrarUsuario = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jButtonLimpiarFormulario = new javax.swing.JButton();
+        jLabelBanner = new javax.swing.JLabel();
         jlblEstadoContraseña = new javax.swing.JLabel();
         jlblEstadoRut = new javax.swing.JLabel();
         jlblEstadoContraseñasIguales = new javax.swing.JLabel();
         jLabelValidarEmail = new javax.swing.JLabel();
+        jLabelSucursal = new javax.swing.JLabel();
+        jComboBoxSucursal = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -71,39 +73,39 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Usuario");
+        jLabelApellido.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelApellido.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelApellido.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelApellido.setText("Apellido");
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Contraseña");
+        jLabelContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelContraseña.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelContraseña.setText("Contraseña");
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Confirma contraseña");
+        jLabelConfirmarContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelConfirmarContraseña.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelConfirmarContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelConfirmarContraseña.setText("Confirma contraseña");
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Rut");
+        jLabelRut.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelRut.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelRut.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRut.setText("Rut");
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Nombre");
+        jLabelNombre.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setText("Nombre");
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Email");
+        jLabelEmail.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelEmail.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmail.setText("Email");
 
-        jTextFieldUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldUsuarioKeyTyped(evt);
+                jTextFieldApellidoKeyTyped(evt);
             }
         });
 
@@ -157,34 +159,34 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/registrar2424.png"))); // NOI18N
-        jButton1.setText("Registrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistrarUsuario.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButtonRegistrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/registrar2424.png"))); // NOI18N
+        jButtonRegistrarUsuario.setText("Registrar");
+        jButtonRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonRegistrarUsuarioActionPerformed(evt);
             }
         });
-        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jButtonRegistrarUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton1KeyPressed(evt);
+                jButtonRegistrarUsuarioKeyPressed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/close2424.png"))); // NOI18N
-        jButton2.setText("Cancelar");
+        jButtonCancelar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/close2424.png"))); // NOI18N
+        jButtonCancelar.setText("Cancelar");
 
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/recycle2424.png"))); // NOI18N
-        jButton3.setText("Limpiar Formulario");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLimpiarFormulario.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButtonLimpiarFormulario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/recycle2424.png"))); // NOI18N
+        jButtonLimpiarFormulario.setText("Limpiar Formulario");
+        jButtonLimpiarFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonLimpiarFormularioActionPerformed(evt);
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/movies.png"))); // NOI18N
+        jLabelBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/movies.png"))); // NOI18N
 
         jlblEstadoContraseña.setText(" ");
 
@@ -194,104 +196,116 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
         jLabelValidarEmail.setText(" ");
 
+        jLabelSucursal.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelSucursal.setText("Sucursal");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelBanner)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel7)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButtonLimpiarFormulario)
+                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlblEstadoContraseña)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelValidarEmail)
-                            .addComponent(jlblEstadoContraseñasIguales)
-                            .addComponent(jlblEstadoContraseña)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelRut, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelContraseña, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelConfirmarContraseña, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelNombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelApellido, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelSucursal, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldEmail)
+                            .addComponent(jTextFieldApellido)
+                            .addComponent(jTextFieldNombre)
+                            .addComponent(jPasswordFieldConfContraseña)
+                            .addComponent(jPasswordFieldContraseña)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(jTextFieldRut, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldUsuario)
-                                    .addComponent(jTextFieldNombre)
-                                    .addComponent(jTextFieldEmail)
-                                    .addComponent(jPasswordFieldContraseña)
-                                    .addComponent(jPasswordFieldConfContraseña)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldRut, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlblEstadoRut)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jlblEstadoRut))
+                            .addComponent(jComboBoxSucursal, 0, 169, Short.MAX_VALUE)))
+                    .addComponent(jlblEstadoContraseñasIguales)
+                    .addComponent(jLabelValidarEmail)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel7)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabelBanner)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextFieldRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlblEstadoRut))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabelRut))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlblEstadoRut)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabelContraseña))
                     .addComponent(jPasswordFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jlblEstadoContraseña)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabelConfirmarContraseña))
                     .addComponent(jPasswordFieldConfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jlblEstadoContraseñasIguales)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNombre)
                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelApellido)
+                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabelEmail))
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jLabelValidarEmail)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSucursal)
+                    .addComponent(jComboBoxSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18))
+                .addComponent(jButtonRegistrarUsuario)
+                .addGap(11, 11, 11)
+                .addComponent(jButtonCancelar)
+                .addGap(11, 11, 11)
+                .addComponent(jButtonLimpiarFormulario)
+                .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarUsuarioActionPerformed
         registrarUsuarios();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonRegistrarUsuarioActionPerformed
 
-    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+    private void jButtonRegistrarUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonRegistrarUsuarioKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
             registrarUsuarios();
         }
-    }//GEN-LAST:event_jButton1KeyPressed
+    }//GEN-LAST:event_jButtonRegistrarUsuarioKeyPressed
 
     private void jTextFieldRutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldRutFocusLost
         if(validarRut())
@@ -310,9 +324,9 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         new Login().configAccesoLoginUsuario();
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarFormularioActionPerformed
         ReestablecerFormularioRegistroDeUsuario();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonLimpiarFormularioActionPerformed
 
     private void jPasswordFieldConfContraseñaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldConfContraseñaFocusLost
         validarIgualdadContraseñas();
@@ -337,7 +351,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         {
             evt.consume();
         }
-        if (this.jTextFieldNombre.getText().length() == 40)
+        if (this.jTextFieldNombre.getText().length() == 30)
         {
             evt.consume();
         }
@@ -360,29 +374,29 @@ public class RegistrarUsuario extends javax.swing.JFrame {
        validarContraseñaLetrasyNumeros();
     }//GEN-LAST:event_jPasswordFieldContraseñaFocusLost
 
-    private void jTextFieldUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioKeyTyped
-        if (this.jTextFieldUsuario.getText().length() == 20)
+    private void jTextFieldApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldApellidoKeyTyped
+        if (this.jTextFieldApellido.getText().length() == 30)
         {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextFieldUsuarioKeyTyped
+    }//GEN-LAST:event_jTextFieldApellidoKeyTyped
 
     private void jPasswordFieldContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseñaKeyTyped
-        if (this.jPasswordFieldContraseña.getPassword().length == 20)
+        if (this.jPasswordFieldContraseña.getPassword().length == 30)
         {
             evt.consume();
         }
     }//GEN-LAST:event_jPasswordFieldContraseñaKeyTyped
 
     private void jPasswordFieldConfContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldConfContraseñaKeyTyped
-        if (this.jPasswordFieldConfContraseña.getPassword().length == 20)
+        if (this.jPasswordFieldConfContraseña.getPassword().length == 30)
         {
             evt.consume();
         }
     }//GEN-LAST:event_jPasswordFieldConfContraseñaKeyTyped
 
     private void jTextFieldEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEmailKeyTyped
-        if (this.jTextFieldEmail.getText().length() == 40)
+        if (this.jTextFieldEmail.getText().length() == 50)
         {
             evt.consume();
         }
@@ -428,27 +442,27 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     private void registrarUser(){
         try
         {
-            /* captura usuario*/
-            String nuevoUser = this.jTextFieldUsuario.getText();
-            if(nuevoUser.length() == 0)
-            {
-                nuevoUser = null;
-            }
-            /*captura de contraseña*/
-            char[] pw = this.jPasswordFieldContraseña.getPassword();
-            String pwNuevoUser = new String(pw);
-            if (pwNuevoUser.length() == 0)
-            {
-                pwNuevoUser = null;
-            } 
             /* caputa rut*/
             String rutDV = this.jTextFieldRut.getText();
             int rut = Integer.parseInt(rutDV.substring(0,rutDV.length() - 2));
+            /*captura de contraseña*/
+            char[] pw = this.jPasswordFieldContraseña.getPassword();
+            String contraseña = new String(pw);
+            if (contraseña.length() == 0)
+            {
+                contraseña = null;
+            } 
             /*captura nombre*/
             String nombre = this.jTextFieldNombre.getText().trim();
             if(nombre.length() == 0)
             {
                 nombre = null;
+            }
+            /* captura apellido*/
+            String apellido = this.jTextFieldApellido.getText();
+            if(apellido.length() == 0)
+            {
+                apellido = null;
             }
             /*captura de Email*/
             String email = this.jTextFieldEmail.getText().trim();
@@ -456,8 +470,9 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             {
                 email = null;
             }
+            String sucursal = jComboBoxSucursal.getSelectedItem().toString();
 
-            /*int resultado = new BLL.Usuario().registrarUsuarioBLL(nuevoUser,pwNuevoUser,rut,nombre,email);
+            int resultado = new BLL.Usuario().registrarUsuarioBLL(rut, contraseña, nombre, apellido, email, sucursal);
             switch(resultado)
             {
                 case 1: JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente", "Registros", JOptionPane.INFORMATION_MESSAGE);
@@ -472,7 +487,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                            break;  
                 default: JOptionPane.showMessageDialog(null, "Error desconocido. Contacte al Administrador: " + resultado, "Registros", JOptionPane.ERROR_MESSAGE); 
                            break;
-            }*/
+            }
         }
         catch(NumberFormatException e)
         {
@@ -487,13 +502,13 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     
     private boolean validarFormularioRegistroUsuarios(){
         int validaciones = 0; 
-        if(this.jTextFieldUsuario.getText().trim().isEmpty())
+        if(this.jTextFieldApellido.getText().trim().isEmpty())
         {
-            this.jTextFieldUsuario.setBackground(Color.cyan);
+            this.jTextFieldApellido.setBackground(Color.cyan);
             validaciones++;
         }
         else{
-            this.jTextFieldUsuario.setBackground(Color.black);
+            this.jTextFieldApellido.setBackground(Color.black);
         }
         if (! validarContraseñaLetrasyNumeros()) 
         {
@@ -540,7 +555,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(null, "Debe ingresar todos los valores que se indican...", "Registro CINEDEMARK", JOptionPane.WARNING_MESSAGE);
-            this.jTextFieldUsuario.requestFocus();
+            this.jTextFieldApellido.requestFocus();
         }
     }
     
@@ -620,14 +635,14 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         r.setVisible(true);
         r.setLocationRelativeTo(null);
         r.setTitle("Registrar Usuario CINEDEMARK");
-        r.jTextFieldUsuario.requestFocus();
+        r.jTextFieldApellido.requestFocus();
         r.setResizable(false);
     }
     
     private void ReestablecerFormularioRegistroDeUsuario(){
     jPasswordFieldConfContraseña.setText(null);
     jPasswordFieldContraseña.setText(null);
-    jTextFieldUsuario.setText(null);
+    jTextFieldApellido.setText(null);
     jTextFieldNombre.setText(null);
     jTextFieldRut.setText(null);
     jTextFieldEmail.setText(null);
@@ -637,7 +652,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     jLabelValidarEmail.setText(" ");
     jPasswordFieldConfContraseña.setBackground(Color.black);
     jPasswordFieldContraseña.setBackground(Color.black);
-    jTextFieldUsuario.setBackground(Color.black);
+    jTextFieldApellido.setBackground(Color.black);
     jTextFieldNombre.setBackground(Color.black);
     jTextFieldRut.setBackground(Color.black);
     jTextFieldEmail.setBackground(Color.black);
@@ -690,23 +705,25 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonLimpiarFormulario;
+    private javax.swing.JButton jButtonRegistrarUsuario;
+    private javax.swing.JComboBox jComboBoxSucursal;
+    private javax.swing.JLabel jLabelApellido;
+    private javax.swing.JLabel jLabelBanner;
+    private javax.swing.JLabel jLabelConfirmarContraseña;
+    private javax.swing.JLabel jLabelContraseña;
+    private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelRut;
+    private javax.swing.JLabel jLabelSucursal;
     private javax.swing.JLabel jLabelValidarEmail;
     private javax.swing.JPasswordField jPasswordFieldConfContraseña;
     private javax.swing.JPasswordField jPasswordFieldContraseña;
+    private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldRut;
-    private javax.swing.JTextField jTextFieldUsuario;
     private javax.swing.JLabel jlblEstadoContraseña;
     private javax.swing.JLabel jlblEstadoContraseñasIguales;
     private javax.swing.JLabel jlblEstadoRut;
