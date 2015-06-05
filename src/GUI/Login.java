@@ -33,7 +33,6 @@ public class Login extends javax.swing.JFrame {
         jButtonAcceder = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonOpc1 = new javax.swing.JButton();
-        jButtonOpc2 = new javax.swing.JButton();
         jButtonCrearUser = new javax.swing.JButton();
         jLabelInicioSesion = new javax.swing.JLabel();
 
@@ -44,7 +43,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Usuario");
+        jLabel2.setText("Rut");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -76,15 +75,6 @@ public class Login extends javax.swing.JFrame {
         jButtonOpc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOpc1ActionPerformed(evt);
-            }
-        });
-
-        jButtonOpc2.setBackground(new java.awt.Color(51, 51, 0));
-        jButtonOpc2.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonOpc2.setText("¿Olvidaste tu usuario?");
-        jButtonOpc2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOpc2ActionPerformed(evt);
             }
         });
 
@@ -124,7 +114,6 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(jButtonAcceder))
                             .addComponent(jPasswordFieldContraseña)
                             .addComponent(jTextFieldUser)))
-                    .addComponent(jButtonOpc2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelInicioSesion))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -146,11 +135,9 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonAcceder)
                     .addComponent(jButtonCancelar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jButtonOpc1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonOpc2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonCrearUser, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -178,38 +165,37 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonAccederKeyPressed
 
-    private void jButtonOpc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpc2ActionPerformed
-        new OlvideUsuario().configOlvideUsuario();
-    }//GEN-LAST:event_jButtonOpc2ActionPerformed
-
     private void validarAccesoUsuario(){
-        String usuario = jTextFieldUser.getText();
+        String user = jTextFieldUser.getText();
+        int usuario = Integer.parseInt(user);
         char[] password = jPasswordFieldContraseña.getPassword();
         String contraseña = new String(password);
         BLL.Usuario u = new BLL.Usuario().buscarUserUsuario(usuario);
             if(u != null)
             {
-                String ContraseñaBD = u.getContraseña();
-                if (contraseña.equals(ContraseñaBD)) 
+                if(u.getEstadousuario() == 1)
                 {
-                    if (u.getIdTipoUsuario() == 0) 
+                    if (contraseña.equals(u.getContraseña())) 
                     {
-                        InterfaceUsuario i = new InterfaceUsuario();
-                        i.setVisible(true);
-                        i.setLocationRelativeTo(null);
-                        i.setTitle("Centro de Control CINEDEMARK");
-                        dispose();
+                        if (u.getIdTipoUsuario() == 0) 
+                        {
+                            InterfaceUsuario i = new InterfaceUsuario();
+                            i.setVisible(true);
+                            i.setLocationRelativeTo(null);
+                            i.setTitle("Centro de Control CINEDEMARK");
+                            dispose();
+                        }
+                        else
+                        {
+                            InterfaceAdmin i = new InterfaceAdmin();
+                            i.setVisible(true);
+                            i.setLocationRelativeTo(null);
+                            i.setTitle("Administración CINEDEMARK");
+                            dispose();
+                        }
                     }
-                    else
-                    {
-                        InterfaceAdmin i = new InterfaceAdmin();
-                        i.setVisible(true);
-                        i.setLocationRelativeTo(null);
-                        i.setTitle("Administración CINEDEMARK");
-                        dispose();
-                    }
-                }
-                else{this.jLabelInicioSesion.setText("Su contraseña no es válida");}    
+                    else{this.jLabelInicioSesion.setText("Su contraseña no es válida");}  
+                }else{this.jLabelInicioSesion.setText("El usuario no esta activado");}    
             }       
             else{this.jLabelInicioSesion.setText("El usuario no existe");}
     }
@@ -267,7 +253,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonCrearUser;
     private javax.swing.JButton jButtonOpc1;
-    private javax.swing.JButton jButtonOpc2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

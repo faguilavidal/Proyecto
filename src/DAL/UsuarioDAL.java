@@ -18,12 +18,12 @@ public class UsuarioDAL {
     /////////////////////METODOS DE LA CLASE////////////////////////
     ////////////////////////////////////////////////////////////////
     
-    public BLL.Usuario buscarUserUsuario(String usuario){
+    public BLL.Usuario buscarUserUsuario(int usuario){
         try
         {
             String sql = "select * from usuario where usuario = ?";
             PreparedStatement search = conn.crearSentencia(sql);
-            search.setString(1, usuario);
+            search.setInt(1, usuario);
             ResultSet User = search.executeQuery();
             if(User.next())
             {

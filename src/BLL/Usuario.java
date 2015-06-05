@@ -92,7 +92,7 @@ public class Usuario {
         this.idSucursal = idSucursal;
     }
     
-    public Usuario buscarUserUsuario(String usuario){
+    public Usuario buscarUserUsuario(int usuario){
         return new DAL.UsuarioDAL().buscarUserUsuario(usuario);
     }
     
