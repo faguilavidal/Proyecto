@@ -2,7 +2,6 @@
 package DAL;
 /*
  |Actualizacion ha github
-
 */
 public class Actor 
 {
