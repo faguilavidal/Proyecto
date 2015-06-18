@@ -1,4 +1,3 @@
-
 create table tipousuario
 (
 idtipousuario int primary key,
@@ -95,6 +94,8 @@ constraint pk_Compra primary key (idcompra),
 constraint fk_cliente foreign key (rutcliente) references cliente(rut)
 );
 
+///////////////////
+
 create table mercaderia
 (
 idmercaderia int,
@@ -112,8 +113,7 @@ idsala int,
 numero int not null,
 codSucursal int not null,
 constraint pk_sala primary key(idsala),
-constraint fk_Sucursal_sala foreign key(codsucursal) references sucursal(codsucursal),
-constraint fk_TipoSala_sala foreign key(idtiposala) references tiposala(idtiposala)
+constraint fk_Sucursal_sala foreign key(codsucursal) references sucursal(codsucursal)
 );
 
 create table asiento
@@ -166,6 +166,8 @@ constraint pk_Director primary key(codigo),
 constraint fk_Pais_director foreign key(codPais) references pais(codpais)
 );
 
+///////////
+
 create table cartelera
 (
 codigo int,
@@ -191,7 +193,6 @@ codCartelera int not null,
 constraint pk_Pelicula primary key(idpelicula),
 constraint fk_Productora_Pelicula foreign key(codProductora) references productora(codProductora),
 constraint fk_Genero_Pelicula foreign key(codGenero) references genero(codigo),
-constraint fk_Reparto_Pelicula foreign key(codReparto) references reparto(codReparto),
 constraint fk_Pais_Pelicula foreign key(codPais) references pais(codPais),
 constraint fk_Cartelera_Pelicula foreign key(codCartelera) references cartelera(codigo)
 );
