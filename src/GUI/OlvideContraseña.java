@@ -47,7 +47,9 @@ public class OlvideContraseña extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Usuario");
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("RUT Usuario");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/mail_send.png"))); // NOI18N
         jButton1.setText("Enviar Contraseña");
@@ -74,15 +76,16 @@ public class OlvideContraseña extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelUsuarioExiste)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -114,11 +117,20 @@ public class OlvideContraseña extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1KeyPressed
 
+    public char obtenerDigitoVerificador(int rut){
+        int m = 0, s = 1;
+        for (; rut != 0; rut /= 10)
+        {
+            s = (s + rut % 10 * (9 - m++ % 6)) % 11;
+        }
+        return (char) (s != 0 ? s + 47 : 75);  
+    }
+    
     private void SendMail() {
         String Username = "cinedemark2015@gmail.com";
         String PassWord = "cinedemark123";
-        String user = jTextFieldUsuario.getText();
-        int usuario = Integer.parseInt(user);
+        String rutDV = jTextFieldUsuario.getText();
+        int usuario = Integer.parseInt(rutDV.substring(0,rutDV.length() - 2));
         BLL.Usuario u = new BLL.Usuario().buscarUserUsuario(usuario);
         if(u != null)
         {
@@ -142,7 +154,7 @@ public class OlvideContraseña extends javax.swing.JFrame {
                 message.setRecipients(Message.RecipientType.TO,
                         InternetAddress.parse(u.getEmail()));
                 message.setSubject("Envio de contraseña olvidada");
-                message.setText("Nos ha llegado una solicitud de contraseña: \nTu usuario es: " + u.getRut()+ "\nY tu Contraseña es: " + u.getContraseña() + "\n \n Administracion CINEDEMARK");
+                message.setText("Nos ha llegado una solicitud de contraseña: \nTu usuario es: " + u.getRut()+"-" + obtenerDigitoVerificador(u.getRut())+ "\nY tu Contraseña es: " + u.getContraseña() + "\n \n Administracion CINEDEMARK");
 
                 Transport.send(message);
                 JOptionPane.showMessageDialog(this, "La contraseña ha sido enviada a su correo electronico", "Envio de Contraseña", JOptionPane.INFORMATION_MESSAGE);
