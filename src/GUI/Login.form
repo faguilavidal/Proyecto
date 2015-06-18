@@ -27,25 +27,29 @@
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="380" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jButtonCrearUser" min="-2" pref="180" max="-2" attributes="0"/>
                   <Component id="jButtonOpc1" min="-2" pref="180" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButtonCancelar" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonAcceder" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jButtonCancelar" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButtonAcceder" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jPasswordFieldContraseña" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldUser" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jPasswordFieldContraseña" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldUser" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabelInicioSesion1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jLabelInicioSesion" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -63,7 +67,12 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldUser" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelInicioSesion1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jPasswordFieldContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -75,7 +84,7 @@
                   <Component id="jButtonAcceder" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonCancelar" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
               <Component id="jButtonOpc1" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButtonCrearUser" min="-2" pref="20" max="-2" attributes="0"/>
@@ -121,8 +130,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldUser">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldUserFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldUserFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jPasswordFieldContrase&#xf1;a">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jPasswordFieldContrase&#xf1;aFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAcceder">
       <Properties>
@@ -186,6 +202,22 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="text" type="java.lang.String" value=" "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="cc" red="66" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ej: 12345678-9"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelInicioSesion1">
+      <Properties>
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>

@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -35,6 +36,8 @@ public class Login extends javax.swing.JFrame {
         jButtonOpc1 = new javax.swing.JButton();
         jButtonCrearUser = new javax.swing.JButton();
         jLabelInicioSesion = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabelInicioSesion1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +52,21 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña");
+
+        jTextFieldUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldUserFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldUserFocusLost(evt);
+            }
+        });
+
+        jPasswordFieldContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordFieldContraseñaFocusGained(evt);
+            }
+        });
 
         jButtonAcceder.setBackground(new java.awt.Color(153, 255, 153));
         jButtonAcceder.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -90,6 +108,12 @@ public class Login extends javax.swing.JFrame {
         jLabelInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelInicioSesion.setText(" ");
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(102, 204, 0));
+        jLabel4.setText("Ej: 12345678-9");
+
+        jLabelInicioSesion1.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,16 +128,19 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jButtonOpc1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonAcceder))
-                            .addComponent(jPasswordFieldContraseña)
-                            .addComponent(jTextFieldUser)))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButtonAcceder))
+                                .addComponent(jPasswordFieldContraseña)
+                                .addComponent(jTextFieldUser))
+                            .addComponent(jLabelInicioSesion1)))
                     .addComponent(jLabelInicioSesion))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -125,7 +152,11 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabelInicioSesion1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jPasswordFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -135,7 +166,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonAcceder)
                     .addComponent(jButtonCancelar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButtonOpc1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonCrearUser, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,7 +181,8 @@ public class Login extends javax.swing.JFrame {
         if (validarRut(rut)) {
             validarAccesoUsuario();
         }else{
-            jLabelInicioSesion.setText("Rut incorrecto");
+            jLabelInicioSesion.setForeground(Color.yellow);
+            jLabelInicioSesion.setText("Rut Invalido");
         }
         
     }//GEN-LAST:event_jButtonAccederActionPerformed
@@ -170,6 +202,24 @@ public class Login extends javax.swing.JFrame {
             validarAccesoUsuario();
         }
     }//GEN-LAST:event_jButtonAccederKeyPressed
+
+    private void jTextFieldUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldUserFocusLost
+        if(!validarRut(jTextFieldUser.getText()))
+        {
+            this.jLabelInicioSesion1.setForeground(Color.yellow);
+            this.jLabelInicioSesion1.setText("Formato Rut incorrecto");
+        }
+    }//GEN-LAST:event_jTextFieldUserFocusLost
+
+    private void jTextFieldUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldUserFocusGained
+        jTextFieldUser.selectAll();
+        this.jLabelInicioSesion1.setText(" ");
+        this.jLabelInicioSesion.setText(" ");
+    }//GEN-LAST:event_jTextFieldUserFocusGained
+
+    private void jPasswordFieldContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseñaFocusGained
+        jPasswordFieldContraseña.selectAll();
+    }//GEN-LAST:event_jPasswordFieldContraseñaFocusGained
 
     private boolean validarRut(String rut){
         try
@@ -200,8 +250,8 @@ public class Login extends javax.swing.JFrame {
     }
     
     private void validarAccesoUsuario(){
-        String user = jTextFieldUser.getText();
-        int usuario = Integer.parseInt(user);
+        String rutDV = jTextFieldUser.getText();
+        int usuario = Integer.parseInt(rutDV.substring(0,rutDV.length() - 2));
         char[] password = jPasswordFieldContraseña.getPassword();
         String contraseña = new String(password);
         BLL.Usuario u = new BLL.Usuario().buscarUserUsuario(usuario);
@@ -287,7 +337,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelInicioSesion;
+    private javax.swing.JLabel jLabelInicioSesion1;
     private javax.swing.JPasswordField jPasswordFieldContraseña;
     private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables

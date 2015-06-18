@@ -70,9 +70,17 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         jComboBoxSucursal = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -199,7 +207,9 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
         jLabelValidarEmail.setText(" ");
 
+        jLabelSucursal.setBackground(new java.awt.Color(255, 255, 255));
         jLabelSucursal.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelSucursal.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSucursal.setText("Sucursal");
 
         jComboBoxSucursal.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -412,8 +422,16 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldEmailKeyTyped
 
     private void jComboBoxSucursalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxSucursalFocusGained
-        cargarListadoSucursales();
+        
     }//GEN-LAST:event_jComboBoxSucursalFocusGained
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentShown
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        cargarListadoSucursales();
+    }//GEN-LAST:event_formWindowOpened
     
     private boolean validarIgualdadContraseñas(){
         char[] pw1 = jPasswordFieldContraseña.getPassword();
@@ -725,6 +743,8 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                RegistrarUsuario r = new RegistrarUsuario();
+        r.setVisible(true);
             }
         });
     }

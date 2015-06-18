@@ -38,7 +38,7 @@ public class SucursalDAL {
     public int idSucursal(String Sucursal) {
         try
         {
-            String sql = "Select idsucursal from sucursal where  nombre = ?";
+            String sql = "Select codsucursal from sucursal where  nombre = ?";
             PreparedStatement obtener = conn.crearSentencia(sql);
             obtener.setString(1, Sucursal);
             ResultSet valor = obtener.executeQuery();

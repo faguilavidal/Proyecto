@@ -3,6 +3,7 @@ package DAL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -93,6 +94,7 @@ public class UsuarioDAL {
         }
         catch(SQLException e)
         {
+            //JOptionPane.showMessageDialog(null, e.getMessage());
             return e.getErrorCode();
         }
     }
