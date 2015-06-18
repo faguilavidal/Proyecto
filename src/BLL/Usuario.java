@@ -1,7 +1,5 @@
 package BLL;
 
-import DAL.UsuarioDAL;
-
 /**
  *
  * @author Fabian Aguila
