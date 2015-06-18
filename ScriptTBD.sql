@@ -16,7 +16,7 @@ constraint fk_Sucursal foreign key (codsucursal) references sucursal(codsucursal
 create table tipousuario
 (
 idtipousuario int primary key,
-nombre varchar2(20) not null
+nombre varchar2(30) not null
 );
 
 create table sucursal
@@ -105,19 +105,11 @@ constraint pk_Mercaderia primary key(idmercaderia),
 constraint fk_Compra foreign key(idcompra) references compra(idcompra)
 );
 
-create table tipoSala
-(
-idtiposala int,
-nombre varchar2(20) not null,
-constraint pk_tiposala primary key(idtiposala)
-);
-
 create table sala
 (
 idsala int,
 numero int not null,
 codSucursal int not null,
-idTipoSala int not null,
 constraint pk_sala primary key(idsala),
 constraint fk_Sucursal_sala foreign key(codsucursal) references sucursal(codsucursal),
 constraint fk_TipoSala_sala foreign key(idtiposala) references tiposala(idtiposala)
@@ -173,30 +165,20 @@ constraint pk_Director primary key(codigo),
 constraint fk_Pais_director foreign key(codPais) references pais(codpais)
 );
 
-create table reparto
+create table actorPelicula
 (
-codreparto int,
-codDirector int not null,
-codactor int not null,
-constraint pk_Reparto primary key(codreparto),
-constraint fk_Actor foreign key(codactor) references actor(codigo),
-constraint fk_director foreign key(codDirector) references director(codigo)
-);
-
-create table actorReparto
-(
-codReparto int not null,
+codpelicula int not null,
 codActor int not null,
-constraint fk_Reparto foreign key(codreparto) references reparto(codreparto),
-constraint fk_Actor_actorReparto foreign key(codactor) references actor(codigo)
+constraint fk_Pelucla_APelicula foreign key(codpelicula) references pelicula(codigo),
+constraint fk_Actor_actorPelicula foreign key(codactor) references actor(codigo)
 );
 
-create table directorReparto
+create table directorPelicula
 (
-codReparto int not null,
+codpelicula int not null,
 codDirector int not null,
-constraint fk_Reparto_dirReparto foreign key(codReparto) references reparto(codreparto),
-constraint fk_Director_dirReparto foreign key(codDirector) references director(codigo)
+constraint fk_Pelicula_Dpelicula foreign key(codpelicula) references pelicula(codigo),
+constraint fk_Director_DPelicula foreign key(codDirector) references director(codigo)
 );
 
 create table cartelera
@@ -219,7 +201,6 @@ paginaWeb varchar2(50) not null,
 estado int not null,
 codProductora int not null,
 codGenero int not null,
-codReparto int not null,
 codPais int not null,
 codCartelera int not null,
 constraint pk_Pelicula primary key(idpelicula),
