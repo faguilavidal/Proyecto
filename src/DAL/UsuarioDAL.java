@@ -33,9 +33,8 @@ public class UsuarioDAL {
                 u.setNombre(User.getString(3));
                 u.setApellido(User.getString(4));
                 u.setEmail(User.getString(5));
-                u.setEstadousuario(User.getInt(6));
-                u.setIdTipoUsuario(User.getInt(7));
-                u.setIdSucursal(User.getInt(8));
+                u.setIdTipoUsuario(User.getInt(6));
+                u.setIdSucursal(User.getInt(7));
                 return u;
             }
             else
@@ -64,9 +63,8 @@ public class UsuarioDAL {
                 u.setNombre(User.getString(3));
                 u.setApellido(User.getString(4));
                 u.setEmail(User.getString(5));
-                u.setEstadousuario(User.getInt(6));
-                u.setIdTipoUsuario(User.getInt(7));
-                u.setIdSucursal(User.getInt(8));
+                u.setIdTipoUsuario(User.getInt(6));
+                u.setIdSucursal(User.getInt(7));
                 return u;
             }
             else
@@ -83,7 +81,7 @@ public class UsuarioDAL {
     public int insertUser(BLL.Usuario u){
         try
         {
-            String sql = "insert into usuario values(?,?,?,?,?,0,0,?)";
+            String sql = "insert into usuario values(?,?,?,?,?,0,?)";
             PreparedStatement insert = conn.crearSentencia(sql);
             insert.setInt(1,u.getRut());
             insert.setString(2, u.getContraseña());
@@ -96,28 +94,6 @@ public class UsuarioDAL {
         catch(SQLException e)
         {
             return e.getErrorCode();
-        }
-    }
-
-    public int idSucursal(String Sucursal) {
-        try
-        {
-            String sql = "Select idsucursal from sucursal where  = ?";
-            PreparedStatement obtener = conn.crearSentencia(sql);
-            obtener.setString(1, Sucursal);
-            ResultSet valor = obtener.executeQuery();
-            if(valor.next())
-            {
-                return valor.getInt(1);
-            }
-            else
-            {
-                return -1;
-            }
-        }
-        catch(SQLException e)
-        {
-            return -1;
         }
     }
 }

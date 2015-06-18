@@ -1,5 +1,7 @@
 package BLL;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Fabian Aguila
@@ -62,4 +64,20 @@ public class Sucursal {
         this.codComuna = codComuna;
     }
     
+    @Override
+    public String toString(){
+        return nombre;
+    }
+    
+    public ArrayList<Sucursal> listadoSucursales(){
+        return new DAL.SucursalDAL().selectSucursales();
+    }
+    
+    public int obtenerIdSucursal(String nombre){
+        return new DAL.SucursalDAL().idSucursal(nombre);
+    }
+    
+    public String obtenerNombreSucursal(int id){
+        return new DAL.SucursalDAL().obtenerNombreSucursal(id);
+    }
 }

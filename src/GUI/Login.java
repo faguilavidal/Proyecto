@@ -146,7 +146,13 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccederActionPerformed
-        validarAccesoUsuario();
+        String rut = jTextFieldUser.getText();
+        if (validarRut(rut)) {
+            validarAccesoUsuario();
+        }else{
+            jLabelInicioSesion.setText("Rut incorrecto");
+        }
+        
     }//GEN-LAST:event_jButtonAccederActionPerformed
 
     private void jButtonCrearUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearUserActionPerformed
@@ -165,6 +171,34 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonAccederKeyPressed
 
+    private boolean validarRut(String rut){
+        try
+        {
+            String[] rut_dv = rut.split("-");
+            if (rut_dv.length == 2)
+            {
+                int rutValor = Integer.parseInt(rut_dv[0]);
+                String DV = rut_dv[1].substring(0).toUpperCase();
+                char dv = DV.charAt(0);
+            
+                // Validamos que sea un rut valido según la norma
+                int m = 0, s = 1;
+                for (; rutValor != 0; rutValor /= 10)
+                {
+                    s = (s + rutValor % 10 * (9 - m++ % 6)) % 11;
+                }
+            
+                return dv == (char) (s != 0 ? s + 47 : 75);    
+            }
+            return false;
+        }
+        catch(NumberFormatException e)
+        {
+            return false;
+        }
+        
+    }
+    
     private void validarAccesoUsuario(){
         String user = jTextFieldUser.getText();
         int usuario = Integer.parseInt(user);
@@ -173,8 +207,6 @@ public class Login extends javax.swing.JFrame {
         BLL.Usuario u = new BLL.Usuario().buscarUserUsuario(usuario);
             if(u != null)
             {
-                if(u.getEstadousuario() == 1)
-                {
                     if (contraseña.equals(u.getContraseña())) 
                     {
                         if (u.getIdTipoUsuario() == 0) 
@@ -194,8 +226,7 @@ public class Login extends javax.swing.JFrame {
                             dispose();
                         }
                     }
-                    else{this.jLabelInicioSesion.setText("Su contraseña no es válida");}  
-                }else{this.jLabelInicioSesion.setText("El usuario no esta activado");}    
+                    else{this.jLabelInicioSesion.setText("Su contraseña no es válida");}   
             }       
             else{this.jLabelInicioSesion.setText("El usuario no existe");}
     }

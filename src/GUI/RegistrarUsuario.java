@@ -5,10 +5,13 @@
  */
 package GUI;
 
+import BLL.Sucursal;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -198,6 +201,12 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
         jLabelSucursal.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabelSucursal.setText("Sucursal");
+
+        jComboBoxSucursal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jComboBoxSucursalFocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -401,6 +410,10 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldEmailKeyTyped
+
+    private void jComboBoxSucursalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxSucursalFocusGained
+        cargarListadoSucursales();
+    }//GEN-LAST:event_jComboBoxSucursalFocusGained
     
     private boolean validarIgualdadContraseñas(){
         char[] pw1 = jPasswordFieldContraseña.getPassword();
@@ -557,6 +570,18 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe ingresar todos los valores que se indican...", "Registro CINEDEMARK", JOptionPane.WARNING_MESSAGE);
             this.jTextFieldApellido.requestFocus();
         }
+    }
+    
+    private void cargarListadoSucursales(){
+        this.jComboBoxSucursal.removeAllItems();
+        ArrayList<Sucursal> ciudades = new Sucursal().listadoSucursales();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for(BLL.Sucursal c: ciudades)
+        {
+            modelo.addElement(c);
+        }
+        this.jComboBoxSucursal.setModel(modelo);
+        this.jComboBoxSucursal.setSelectedIndex(-1);
     }
     
     private boolean validarContraseñaLetrasyNumeros(){
