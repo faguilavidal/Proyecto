@@ -33,8 +33,8 @@ public class Conexion {
         try
         {   
             String database = "Cine de Mark";
-            String user = "CINE";
-            String password = "oracle";
+            String user = "CineDeMark";
+            String password = "acmilan29";
             conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE",user,password);
           //conn = DriverManager.getConnection("jdbc:oracle:thin://192.168.43.135:1521:XE/",user,password); REMOTO  
             System.out.println("Conectado correctamente a " + database);
