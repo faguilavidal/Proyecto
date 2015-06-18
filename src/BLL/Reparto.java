@@ -1,0 +1,22 @@
+
+package BLL;
+
+public class Reparto 
+{
+    private int codigo;
+
+    public Reparto() {
+    }
+
+    public Reparto(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+}
