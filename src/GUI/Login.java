@@ -16,7 +16,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         ((JPanel)getContentPane()).setOpaque(false);
-        ImageIcon uno=new ImageIcon("C:/Users/FaleTala/Pictures/cine5.jpg");
+        ImageIcon uno=new ImageIcon("src/Image/cine5.jpg");
         JLabel fondo= new JLabel(); fondo.setIcon(uno);
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
@@ -59,6 +59,11 @@ public class Login extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldUserFocusLost(evt);
+            }
+        });
+        jTextFieldUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldUserKeyTyped(evt);
             }
         });
 
@@ -221,6 +226,33 @@ public class Login extends javax.swing.JFrame {
         jPasswordFieldContraseña.selectAll();
     }//GEN-LAST:event_jPasswordFieldContraseñaFocusGained
 
+    private void jTextFieldUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUserKeyTyped
+        char caracter = evt.getKeyChar();
+        if(! (Character.isDigit(caracter) || caracter == KeyEvent.VK_MINUS
+            || caracter == 'k' || caracter == 'K'))
+        {
+            evt.consume();
+        }
+        if (jTextFieldUser.getText().contains("-"))
+        {
+            if(! (Character.isDigit(caracter) || caracter == 'k' || caracter == 'K'))
+            {
+                evt.consume();
+            }
+        }
+        if (jTextFieldUser.getText().contains("k"))
+        {
+            if(! (Character.isDigit(caracter) || caracter == KeyEvent.VK_MINUS))
+            {
+                evt.consume();
+            }
+        }
+        if (this.jTextFieldUser.getText().length() == 12)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldUserKeyTyped
+
     private boolean validarRut(String rut){
         try
         {
@@ -250,6 +282,8 @@ public class Login extends javax.swing.JFrame {
     }
     
     private void validarAccesoUsuario(){
+        try
+        {
         String rutDV = jTextFieldUser.getText();
         int usuario = Integer.parseInt(rutDV.substring(0,rutDV.length() - 2));
         char[] password = jPasswordFieldContraseña.getPassword();
@@ -279,6 +313,9 @@ public class Login extends javax.swing.JFrame {
                     else{this.jLabelInicioSesion.setText("Su contraseña no es válida");}   
             }       
             else{this.jLabelInicioSesion.setText("El usuario no existe");}
+        }catch(NumberFormatException e){
+            jLabelInicioSesion.setText("Formato del rut Incorrecto");
+        }
     }
     
     public void configAccesoLoginUsuario(){

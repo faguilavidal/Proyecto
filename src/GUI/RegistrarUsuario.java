@@ -23,7 +23,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     public RegistrarUsuario() {
         initComponents();
         ((JPanel)getContentPane()).setOpaque(false);
-        ImageIcon uno=new ImageIcon("C:/Users/FaleTala/Pictures/cine5.jpg");
+        ImageIcon uno=new ImageIcon("src/Image/cine5.jpg");
         JLabel fondo= new JLabel(); fondo.setIcon(uno);
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
@@ -56,13 +56,15 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         jLabelSucursal = new javax.swing.JLabel();
         jComboBoxSucursal = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
             }
         });
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -345,6 +347,20 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         {
             evt.consume();
         }
+        if (jTextFieldRut.getText().contains("-"))
+        {
+            if(! (Character.isDigit(caracter) || caracter == 'k' || caracter == 'K'))
+            {
+                evt.consume();
+            }
+        }
+        if (jTextFieldRut.getText().contains("k"))
+        {
+            if(! (Character.isDigit(caracter) || caracter == KeyEvent.VK_MINUS))
+            {
+                evt.consume();
+            }
+        }
         if (this.jTextFieldRut.getText().length() == 12)
         {
             evt.consume();
@@ -381,6 +397,11 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordFieldContraseñaFocusLost
 
     private void jTextFieldApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldApellidoKeyTyped
+        char caracter = evt.getKeyChar();
+        if (! (Character.isLetter(caracter) || caracter == KeyEvent.VK_SPACE))
+        {
+            evt.consume();
+        }
         if (this.jTextFieldApellido.getText().length() == 30)
         {
             evt.consume();
@@ -419,6 +440,10 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         cargarListadoSucursales();
     }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        
+    }//GEN-LAST:event_formWindowClosed
     
     private boolean validarIgualdadContraseñas(){
         char[] pw1 = jPasswordFieldContraseña.getPassword();
@@ -522,45 +547,51 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         int validaciones = 0; 
         if(this.jTextFieldApellido.getText().trim().isEmpty())
         {
-            this.jTextFieldApellido.setBackground(Color.cyan);
+            this.jTextFieldApellido.setBackground(Color.yellow);
             validaciones++;
         }
         else{
-            this.jTextFieldApellido.setBackground(Color.black);
+            this.jTextFieldApellido.setBackground(Color.white);
         }
         if (! validarContraseñaLetrasyNumeros()) 
         {
-            this.jPasswordFieldContraseña.setBackground(Color.cyan);
-            this.jPasswordFieldConfContraseña.setBackground(Color.cyan);
+            this.jPasswordFieldContraseña.setBackground(Color.yellow);
+            this.jPasswordFieldConfContraseña.setBackground(Color.yellow);
             validaciones++;
         }
         else{
-            this.jPasswordFieldContraseña.setBackground(Color.black);
-            this.jPasswordFieldConfContraseña.setBackground(Color.black);
+            this.jPasswordFieldContraseña.setBackground(Color.white);
+            this.jPasswordFieldConfContraseña.setBackground(Color.white);
         }
         if(! validarRut())
         {
-            this.jTextFieldRut.setBackground(Color.cyan);
+            this.jTextFieldRut.setBackground(Color.yellow);
             validaciones++;
         }
         else{
-            this.jTextFieldRut.setBackground(Color.black);
+            this.jTextFieldRut.setBackground(Color.white);
         }
         if(this.jTextFieldNombre.getText().trim().isEmpty())
         {
-            this.jTextFieldNombre.setBackground(Color.cyan);
+            this.jTextFieldNombre.setBackground(Color.yellow);
             validaciones++;
         }
         else{
-            this.jTextFieldNombre.setBackground(Color.black);
+            this.jTextFieldNombre.setBackground(Color.white);
         }
         if(! validarEmail(this.jTextFieldEmail.getText().trim()))
         {
-            this.jTextFieldEmail.setBackground(Color.cyan);
+            this.jTextFieldEmail.setBackground(Color.yellow);
             validaciones++;
         }
         else{
-            this.jTextFieldEmail.setBackground(Color.black);
+            this.jTextFieldEmail.setBackground(Color.white);
+        }
+        if (jComboBoxSucursal.getSelectedIndex() == -1) {
+            jComboBoxSucursal.setBackground(Color.yellow);
+            validaciones++;
+        } else {
+            jComboBoxSucursal.setBackground(Color.white);
         }
         return validaciones == 0;
     }
@@ -680,12 +711,13 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     jlblEstadoContraseñasIguales.setText(" ");
     jlblEstadoRut.setText(" ");
     jLabelValidarEmail.setText(" ");
-    jPasswordFieldConfContraseña.setBackground(Color.black);
-    jPasswordFieldContraseña.setBackground(Color.black);
-    jTextFieldApellido.setBackground(Color.black);
-    jTextFieldNombre.setBackground(Color.black);
-    jTextFieldRut.setBackground(Color.black);
-    jTextFieldEmail.setBackground(Color.black);
+    jPasswordFieldConfContraseña.setBackground(Color.white);
+    jPasswordFieldContraseña.setBackground(Color.white);
+    jTextFieldApellido.setBackground(Color.white);
+    jTextFieldNombre.setBackground(Color.white);
+    jTextFieldRut.setBackground(Color.white);
+    jTextFieldEmail.setBackground(Color.white);
+    jComboBoxSucursal.setBackground(Color.white);
     }
     
     private boolean validarEmail(String email){

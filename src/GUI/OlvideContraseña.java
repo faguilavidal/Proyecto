@@ -24,7 +24,7 @@ public class OlvideContraseña extends javax.swing.JFrame {
     public OlvideContraseña() {
         initComponents();
         ((JPanel)getContentPane()).setOpaque(false);
-        ImageIcon uno=new ImageIcon("C:/Users/FaleTala/Pictures/cine5.jpg");
+        ImageIcon uno=new ImageIcon("src/Image/cine5.jpg");
         JLabel fondo= new JLabel(); fondo.setIcon(uno);
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
@@ -39,8 +39,6 @@ public class OlvideContraseña extends javax.swing.JFrame {
         jTextFieldUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabelUsuarioExiste = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

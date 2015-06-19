@@ -1,5 +1,10 @@
 package GUI;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Fabian Aguila
@@ -8,6 +13,11 @@ public class InterfaceUsuario extends javax.swing.JFrame {
 
     public InterfaceUsuario() {
         initComponents();
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon("src/Image/cine5.jpg");
+        JLabel fondo= new JLabel(); fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
     }
     
     @SuppressWarnings("unchecked")
@@ -25,8 +35,6 @@ public class InterfaceUsuario extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jInternalFrame1.setTitle("Confiteria");
         jInternalFrame1.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/candy_round-24.png"))); // NOI18N
