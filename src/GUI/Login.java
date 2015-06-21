@@ -72,6 +72,11 @@ public class Login extends javax.swing.JFrame {
                 jPasswordFieldContraseñaFocusGained(evt);
             }
         });
+        jPasswordFieldContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldContraseñaKeyPressed(evt);
+            }
+        });
 
         jButtonAcceder.setBackground(new java.awt.Color(153, 255, 153));
         jButtonAcceder.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -91,6 +96,11 @@ public class Login extends javax.swing.JFrame {
         jButtonCancelar.setBackground(new java.awt.Color(255, 204, 204));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cancel_32.png"))); // NOI18N
         jButtonCancelar.setToolTipText("");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jButtonOpc1.setBackground(new java.awt.Color(51, 51, 0));
         jButtonOpc1.setForeground(new java.awt.Color(255, 255, 255));
@@ -242,16 +252,24 @@ public class Login extends javax.swing.JFrame {
         }
         if (jTextFieldUser.getText().contains("k"))
         {
-            if(! (Character.isDigit(caracter) || caracter == KeyEvent.VK_MINUS))
-            {
-                evt.consume();
-            }
+            evt.consume();
         }
         if (this.jTextFieldUser.getText().length() == 12)
         {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldUserKeyTyped
+
+    private void jPasswordFieldContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseñaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            validarAccesoUsuario();
+        }
+    }//GEN-LAST:event_jPasswordFieldContraseñaKeyPressed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private boolean validarRut(String rut){
         try
@@ -303,10 +321,7 @@ public class Login extends javax.swing.JFrame {
                         }
                         else
                         {
-                            InterfaceAdmin i = new InterfaceAdmin();
-                            i.setVisible(true);
-                            i.setLocationRelativeTo(null);
-                            i.setTitle("Administración CINEDEMARK");
+                            new InterfaceAdmin().configInterfaceAdmin();
                             dispose();
                         }
                     }

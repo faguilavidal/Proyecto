@@ -8,18 +8,26 @@ public class Cliente
     private int rut;
     private String nombre;
     private String apellido;
-    private Date fechaNac;
-    private int codTipoCliente;
+    private String direccion;
+    private int telefono;
+    private String fechaNac;
+    private int membresia;
+    private int comuna;
+    private int sucursal;
 
     public Cliente() {
     }
 
-    public Cliente(int rut, String nombre, String apellido, Date fechaNac, int codTipoCliente) {
+    public Cliente(int rut, String nombre, String apellido, String direccion, int telefono, String fechaNac, int membresia, int comuna, int sucursal) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.direccion = direccion;
+        this.telefono = telefono;
         this.fechaNac = fechaNac;
-        this.codTipoCliente = codTipoCliente;
+        this.membresia = membresia;
+        this.comuna = comuna;
+        this.sucursal = sucursal;
     }
 
     public int getRut() {
@@ -46,19 +54,77 @@ public class Cliente
         this.apellido = apellido;
     }
 
-    public Date getFechaNac() {
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(String fechaNac) {
         this.fechaNac = fechaNac;
     }
 
-    public int getCodTipoCliente() {
-        return codTipoCliente;
+    public int getMembresia() {
+        return membresia;
     }
 
-    public void setCodTipoCliente(int codTipoCliente) {
-        this.codTipoCliente = codTipoCliente;
+    public void setMembresia(int membresia) {
+        this.membresia = membresia;
     }
+
+    public int getComuna() {
+        return comuna;
+    }
+
+    public void setComuna(int comuna) {
+        this.comuna = comuna;
+    }
+
+    public int getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(int sucursal) {
+        this.sucursal = sucursal;
+    }
+    
+    
+    public int registrarClienteBLL(int rut, String nombre, String apellido, String direccion, int telefono, String fechaNac, String membresia, String comuna, String sucursal){
+        Cliente c = new Cliente( rut,  nombre,  apellido,  direccion,  telefono,  fechaNac, 
+                                new DAL.TipoClienteDAL().idTipoCliente(membresia),
+                                new DAL.ComunaDAL().idComuna(comuna),
+                                new DAL.SucursalDAL().idSucursal(sucursal));
+        int resultado = new DAL.ClienteDAL().insertCliente(c);
+        return resultado;
+    }
+    
+    /*
+    public User buscarUser(String username){
+        return new DAL.UserDAL().buscarUser(username);
+    }
+    
+     public int actualizarBilletera(int billetera, String username){
+        int resultado = new DAL.UserDAL().updateBilleteraUser(billetera,username);
+        return resultado;
+     }
+     
+      public ArrayList<User> listadoUser(){
+        return new DAL.UserDAL().ConsultarUser();
+     }
+    */
+    
 }

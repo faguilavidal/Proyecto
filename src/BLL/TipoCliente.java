@@ -1,6 +1,8 @@
 
 package BLL;
 
+import java.util.ArrayList;
+
 public class TipoCliente
 {
     private int codigo;
@@ -29,4 +31,22 @@ public class TipoCliente
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    @Override
+    public String toString(){
+        return nombre;
+    }
+    
+    public ArrayList<TipoCliente> listadoTipoCliente(){
+        return new DAL.TipoClienteDAL().selectTipoCliente();
+    }
+    
+    public int obtenerIdTipoCliente(String nombre){
+        return new DAL.TipoClienteDAL().idTipoCliente(nombre);
+    }
+    
+    public String obtenerNombreTipoCliente(int id){
+        return new DAL.TipoClienteDAL().obtenerNombreTipoCliente(id);
+    }
+    
 }

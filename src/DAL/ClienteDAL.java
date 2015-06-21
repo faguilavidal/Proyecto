@@ -5,12 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-public class Cliente 
+public class ClienteDAL 
 {
     private Conexion conn;
     
-    public Cliente()
+    public ClienteDAL()
     {
         conn = new Conexion();
     }
@@ -19,15 +20,24 @@ public class Cliente
     {
         try
         {
-            String sql = "insert into cliente values(?,?)";
+            String sql = "insert into cliente values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement insert = conn.crearSentencia(sql);
             
             insert.setInt(1, c.getRut());
+            insert.setString(2, c.getNombre());
+            insert.setString(3, c.getApellido());
+            insert.setString(4, c.getDireccion());
+            insert.setInt(5, c.getTelefono());
+            insert.setString(6, c.getFechaNac());
+            insert.setInt(7, c.getMembresia());
+            insert.setInt(8, c.getComuna());
+            insert.setInt(9, c.getSucursal());
             
             return insert.executeUpdate();
         }
         catch(SQLException e)
         {
+            JOptionPane.showMessageDialog(null, e.getMessage());// hay un error
             return e.getErrorCode();
         }
     }

@@ -356,10 +356,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         }
         if (jTextFieldRut.getText().contains("k"))
         {
-            if(! (Character.isDigit(caracter) || caracter == KeyEvent.VK_MINUS))
-            {
-                evt.consume();
-            }
+            evt.consume();
         }
         if (this.jTextFieldRut.getText().length() == 12)
         {

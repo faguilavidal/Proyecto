@@ -1,6 +1,8 @@
 
 package BLL;
 
+import java.util.ArrayList;
+
 public class Comuna 
 {
     private int codigo;
@@ -39,4 +41,23 @@ public class Comuna
     public void setCodCiudad(int codCiudad) {
         this.codCiudad = codCiudad;
     }
+    
+    @Override
+    public String toString(){
+        return nombre;
+    }
+    
+    public ArrayList<Comuna> listadoComunas(){
+        return new DAL.ComunaDAL().selectComunas();
+    }
+    
+    public int obtenerIdComuna(String nombre){
+        return new DAL.ComunaDAL().idComuna(nombre);
+    }
+    
+    public String obtenerNombreComuna(int id){
+        return new DAL.ComunaDAL().obtenerNombreComuna(id);
+    }
+    
+    
 }

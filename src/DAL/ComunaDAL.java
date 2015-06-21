@@ -1,3 +1,4 @@
+
 package DAL;
 
 import java.sql.PreparedStatement;
@@ -5,29 +6,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author Fabian Aguila
- */
-public class SucursalDAL {
+public class ComunaDAL 
+{
     private Conexion conn;
     
-    public SucursalDAL(){
+    public ComunaDAL()
+    {
         conn = new Conexion();
     }
     
-    public ArrayList<BLL.Sucursal> selectSucursales(){
+    public ArrayList<BLL.Comuna> selectComunas(){
         try
         {
-            ArrayList<BLL.Sucursal> Sucursal = new ArrayList<>();
-            String sql = "select * from sucursal order by nombre";
+            ArrayList<BLL.Comuna> comuna = new ArrayList<>();
+            String sql = "select * from comuna order by nombre";
             PreparedStatement select = conn.crearSentencia(sql);
             ResultSet listado = select.executeQuery();
             while(listado.next())
             {
-                Sucursal.add(new BLL.Sucursal(listado.getInt(1), listado.getString(2), listado.getString(3), listado.getInt(4), listado.getInt(5)));
+                comuna.add(new BLL.Comuna(listado.getInt(1), listado.getString(2), listado.getInt(3)));
             }
-            return Sucursal;
+            return comuna;
         }
         catch(SQLException e)
         {
@@ -35,12 +34,12 @@ public class SucursalDAL {
         }
     }
     
-    public int idSucursal(String Sucursal) {
+    public int idComuna(String Comuna) {
         try
         {
-            String sql = "Select codsucursal from sucursal where nombre = ?";
+            String sql = "Select idcomuna from comuna where nombre = ?";
             PreparedStatement obtener = conn.crearSentencia(sql);
-            obtener.setString(1, Sucursal);
+            obtener.setString(1, Comuna);
             ResultSet valor = obtener.executeQuery();
             if(valor.next())
             {
@@ -57,10 +56,10 @@ public class SucursalDAL {
         }
     }
     
-    public String obtenerNombreSucursal(int id){
+    public String obtenerNombreComuna(int id){
         try
         {
-            String sql = "Select nombre from sucursal where idsucursal = ?";
+            String sql = "Select nombre from comuna where idcomuna = ?";
             PreparedStatement obtener = conn.crearSentencia(sql);
             obtener.setInt(1, id);
             ResultSet valor = obtener.executeQuery();
@@ -78,4 +77,5 @@ public class SucursalDAL {
             return null;
         }
     }
+    
 }

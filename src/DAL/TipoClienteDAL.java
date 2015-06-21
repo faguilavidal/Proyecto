@@ -1,3 +1,4 @@
+
 package DAL;
 
 import java.sql.PreparedStatement;
@@ -5,29 +6,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author Fabian Aguila
- */
-public class SucursalDAL {
+public class TipoClienteDAL 
+{
     private Conexion conn;
     
-    public SucursalDAL(){
+    public TipoClienteDAL()
+    {
         conn = new Conexion();
     }
     
-    public ArrayList<BLL.Sucursal> selectSucursales(){
+    public ArrayList<BLL.TipoCliente> selectTipoCliente(){
         try
         {
-            ArrayList<BLL.Sucursal> Sucursal = new ArrayList<>();
-            String sql = "select * from sucursal order by nombre";
+            ArrayList<BLL.TipoCliente> TipoCliente = new ArrayList<>();
+            String sql = "select * from tipocliente order by nombre";
             PreparedStatement select = conn.crearSentencia(sql);
             ResultSet listado = select.executeQuery();
             while(listado.next())
             {
-                Sucursal.add(new BLL.Sucursal(listado.getInt(1), listado.getString(2), listado.getString(3), listado.getInt(4), listado.getInt(5)));
+                TipoCliente.add(new BLL.TipoCliente(listado.getInt(1), listado.getString(2)));
             }
-            return Sucursal;
+            return TipoCliente;
         }
         catch(SQLException e)
         {
@@ -35,12 +34,12 @@ public class SucursalDAL {
         }
     }
     
-    public int idSucursal(String Sucursal) {
+    public int idTipoCliente(String TipoCliente) {
         try
         {
-            String sql = "Select codsucursal from sucursal where nombre = ?";
+            String sql = "Select idtipocliente from tipocliente where nombre = ?";
             PreparedStatement obtener = conn.crearSentencia(sql);
-            obtener.setString(1, Sucursal);
+            obtener.setString(1, TipoCliente);
             ResultSet valor = obtener.executeQuery();
             if(valor.next())
             {
@@ -57,10 +56,10 @@ public class SucursalDAL {
         }
     }
     
-    public String obtenerNombreSucursal(int id){
+    public String obtenerNombreTipoCliente(int id){
         try
         {
-            String sql = "Select nombre from sucursal where idsucursal = ?";
+            String sql = "Select nombre from tipocliente where idtipocliente = ?";
             PreparedStatement obtener = conn.crearSentencia(sql);
             obtener.setInt(1, id);
             ResultSet valor = obtener.executeQuery();
