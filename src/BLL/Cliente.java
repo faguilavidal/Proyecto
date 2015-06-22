@@ -112,11 +112,10 @@ public class Cliente
         return resultado;
     }
     
-    /*
-    public User buscarUser(String username){
-        return new DAL.UserDAL().buscarUser(username);
+    public Cliente buscarCliente(int Cliente){
+        return new DAL.ClienteDAL().buscarCliente(Cliente);
     }
-    
+    /*
      public int actualizarBilletera(int billetera, String username){
         int resultado = new DAL.UserDAL().updateBilleteraUser(billetera,username);
         return resultado;

@@ -86,9 +86,12 @@ public class InterfaceAdmin extends javax.swing.JFrame {
 
         setPreferredSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
+        getContentPane().setLayout(null);
 
+        jInternalFrameCliente.setBackground(new java.awt.Color(0, 51, 51));
         jInternalFrameCliente.setClosable(true);
         jInternalFrameCliente.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        jInternalFrameCliente.setForeground(new java.awt.Color(255, 255, 255));
         jInternalFrameCliente.setTitle("Clientes");
         jInternalFrameCliente.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/registrar2424.png"))); // NOI18N
         jInternalFrameCliente.setPreferredSize(new java.awt.Dimension(300, 300));
@@ -102,22 +105,40 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             }
         });
 
+        jLabelRut.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelRut.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRut.setText("RUT");
 
+        jLabelNombre.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombre.setText("NOMBRE");
 
+        jLabelApellido.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelApellido.setForeground(new java.awt.Color(255, 255, 255));
         jLabelApellido.setText("APELLIDO");
 
+        jLabelDireccion.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDireccion.setText("DIRECCION");
 
+        jLabelComuna.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelComuna.setForeground(new java.awt.Color(255, 255, 255));
         jLabelComuna.setText("COMUNA");
 
+        jLabelTelefono.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTelefono.setText("TELEFONO");
 
+        jLabelFechaNacimiento.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFechaNacimiento.setText("FECHA NAC.");
 
+        jLabelMembresia.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelMembresia.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMembresia.setText("MEMBRESIA");
 
+        jLabelSucursal.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabelSucursal.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSucursal.setText("SUCURSAL");
 
         jTextFieldRut.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -169,7 +190,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButtonAgregar.setBackground(new java.awt.Color(51, 51, 51));
         jButtonAgregar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jButtonAgregar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Add-Male-User.png"))); // NOI18N
         jButtonAgregar.setText("AGREGAR");
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +201,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButtonBuscar.setBackground(new java.awt.Color(51, 51, 51));
         jButtonBuscar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jButtonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Search-Male-User.png"))); // NOI18N
         jButtonBuscar.setText("BUSCAR");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +212,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButtonActualizar.setBackground(new java.awt.Color(51, 51, 51));
         jButtonActualizar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jButtonActualizar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Edit-Male-User.png"))); // NOI18N
         jButtonActualizar.setText("ACTUALIZAR");
         jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +223,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButtonEliminar.setBackground(new java.awt.Color(51, 51, 51));
         jButtonEliminar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Remove-Male-User.png"))); // NOI18N
         jButtonEliminar.setText("ELIMINAR");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +234,7 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButtonLimpiarFormulario.setBackground(new java.awt.Color(51, 51, 51));
         jButtonLimpiarFormulario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/limpiar32.png"))); // NOI18N
         jButtonLimpiarFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,7 +283,7 @@ public class InterfaceAdmin extends javax.swing.JFrame {
                         .addComponent(jComboBoxFechanac_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jComboBoxMembresia, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextFieldNombre))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jInternalFrameClienteLayout.setVerticalGroup(
             jInternalFrameClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,6 +340,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getContentPane().add(jInternalFrameCliente);
+        jInternalFrameCliente.setBounds(27, 25, 378, 650);
+
         jInternalFramePeluculas.setClosable(true);
         jInternalFramePeluculas.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         jInternalFramePeluculas.setTitle("Peliculas");
@@ -327,6 +360,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             jInternalFramePeluculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 268, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jInternalFramePeluculas);
+        jInternalFramePeluculas.setBounds(424, 25, 300, 300);
 
         jInternalFrameSalas.setClosable(true);
         jInternalFrameSalas.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -346,6 +382,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             .addGap(0, 268, Short.MAX_VALUE)
         );
 
+        getContentPane().add(jInternalFrameSalas);
+        jInternalFrameSalas.setBounds(742, 25, 300, 300);
+
         jInternalFrameCartelera.setClosable(true);
         jInternalFrameCartelera.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         jInternalFrameCartelera.setTitle("Cartelera");
@@ -364,6 +403,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             .addGap(0, 268, Short.MAX_VALUE)
         );
 
+        getContentPane().add(jInternalFrameCartelera);
+        jInternalFrameCartelera.setBounds(424, 343, 300, 300);
+
         jInternalFrameAbout.setClosable(true);
         jInternalFrameAbout.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         jInternalFrameAbout.setVisible(true);
@@ -378,6 +420,9 @@ public class InterfaceAdmin extends javax.swing.JFrame {
             jInternalFrameAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 140, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jInternalFrameAbout);
+        jInternalFrameAbout.setBounds(742, 343, 185, 172);
 
         jMenuArchivo.setText("Archivo");
         jMenuArchivo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -472,39 +517,6 @@ public class InterfaceAdmin extends javax.swing.JFrame {
         jMenuBarInterfasAdmin.add(jMenuAbout);
 
         setJMenuBar(jMenuBarInterfasAdmin);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jInternalFrameCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jInternalFramePeluculas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jInternalFrameCartelera, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jInternalFrameSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jInternalFrameAbout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(85, 85, 85))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jInternalFrameCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jInternalFrameSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jInternalFramePeluculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jInternalFrameAbout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jInternalFrameCartelera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -646,7 +658,7 @@ public class InterfaceAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        //BuscarCliente();
+        BuscarCliente();
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
@@ -668,6 +680,80 @@ public class InterfaceAdmin extends javax.swing.JFrame {
     ////////////////////////METODOS//////////////METODOS////////////////////////
     ////////////////////////////////////////////////////////////////////////////
    
+    private  void BuscarCliente(){
+        try
+        {
+            if(validarRut())
+            {    
+                String rutDV = this.jTextFieldRut.getText();
+                int rut = Integer.parseInt(rutDV.substring(0,rutDV.length() - 2));
+                BLL.Cliente c = new BLL.Cliente().buscarCliente(rut);
+                if(c != null)
+                {
+                    jTextFieldApellido.setText(c.getApellido());
+                    jTextFieldDireccion.setText(c.getDireccion());
+                    jTextFieldNombre.setText(c.getNombre());
+                    jTextFieldRut.setText(c.getRut()+"");
+                    jTextFieldTelefono.setText(c.getTelefono()+"");
+                    int idmembresia = c.getMembresia();
+                    String nombremembresia = new BLL.TipoCliente().obtenerNombreTipoCliente(idmembresia);
+                    int indiceMembresia = -1;
+                    for (int i = 0; i < jComboBoxMembresia.getItemCount(); i++) {
+                        if (nombremembresia.equals(jComboBoxMembresia.getItemAt(i).toString())) 
+                        {
+                            indiceMembresia = i;
+                            break;
+                        }
+                    }
+                    jComboBoxMembresia.setSelectedIndex(indiceMembresia);
+                    
+                    int idsucursal = c.getSucursal();
+                    String nombresucursal = new BLL.Sucursal().obtenerNombreSucursal(idsucursal);
+                    int indiceSucursal = -1;
+                    for (int i = 0; i < jComboBoxSucursal.getItemCount(); i++) {
+                        if (nombresucursal.equals(jComboBoxSucursal.getItemAt(i).toString())) 
+                        {
+                            indiceSucursal = i;
+                            break;
+                        }
+                    }
+                    jComboBoxSucursal.setSelectedIndex(indiceSucursal);
+                    
+                    int idcomuna = c.getComuna();
+                    String nombrecomuna = new BLL.Comuna().obtenerNombreComuna(idcomuna);
+                    int indiceComuna = -1;
+                    for (int i = 0; i < jComboBoxComuna.getItemCount(); i++) {
+                        if (nombrecomuna.equals(jComboBoxComuna.getItemAt(i).toString())) 
+                        {
+                            indiceComuna = i;
+                            break;
+                        }
+                    }
+                    jComboBoxComuna.setSelectedIndex(indiceComuna);
+                }
+                else
+                {
+                    //jlblBarraEstadoRegistro.setText("El rut ingresado no existe en registros");
+                    this.jTextFieldRut.requestFocus();
+                }
+            }
+            else
+            {
+                //this.jlblBarraEstadoRegistro.setText("Rut Inválido");
+            }
+        }
+        catch(NumberFormatException e)
+        {
+            //jlblBarraEstadoRegistro.setText("Debe ingresar un rut valido a buscar");
+            this.jTextFieldRut.requestFocus();
+        }
+        catch (StringIndexOutOfBoundsException e) 
+        {
+            //jlblBarraEstadoRegistro.setText("Ingrese el rut de la persona");
+            this.jTextFieldRut.requestFocus();
+        }
+    }
+    
     private void AgregarCliente(){
         try 
         {
@@ -1051,7 +1137,7 @@ public class InterfaceAdmin extends javax.swing.JFrame {
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Dark Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

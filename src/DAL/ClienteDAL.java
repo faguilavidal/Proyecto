@@ -41,7 +41,7 @@ public class ClienteDAL
             return e.getErrorCode();
         }
     }
-    
+    /*
     public int updateSucursal(int codigo)
     {
         try
@@ -57,9 +57,9 @@ public class ClienteDAL
         {
             return e.getErrorCode();
         }
-    }
+    }*/
     
-    public int deleteSucursal(int codigo)
+    /*public int deleteSucursal(int codigo)
     {
         try
         {
@@ -74,28 +74,32 @@ public class ClienteDAL
         {
             return e.getErrorCode();
         }
-    }
+    }*/
     
-    public BLL.Sucursal selectSucursal(int codigo)
+    public BLL.Cliente buscarCliente(int rut)
     {
         try
         {
-            String sql = "select * from sucursal where codigo = ?";
+            String sql = "select * from cliente where rut = ?";
             PreparedStatement select = conn.crearSentencia(sql);
             
-            select.setInt(1, codigo);
+            select.setInt(1, rut);
             
-            ResultSet sucursal = select.executeQuery();
+            ResultSet cliente = select.executeQuery();
             
-            if(sucursal.next())
+            if(cliente.next())
             {
-                BLL.Sucursal s = new BLL.Sucursal();
-                s.setCodigo(sucursal.getInt(1));
-                s.setCodComuna(sucursal.getInt(2));
-                s.setCodMall(sucursal.getInt(3));
-                s.setDireccion(sucursal.getString(4));
-                
-                return s;
+                BLL.Cliente c = new BLL.Cliente();
+                c.setRut(cliente.getInt(1));
+                c.setNombre(cliente.getString(2));
+                c.setApellido(cliente.getString(3));
+                c.setDireccion(cliente.getString(4));
+                c.setTelefono(cliente.getInt(5));
+                c.setFechaNac(cliente.getString(6));
+                c.setMembresia(cliente.getInt(7));
+                c.setComuna(cliente.getInt(8));
+                c.setSucursal(cliente.getInt(9));
+                return c;
             }
             else
             {
@@ -108,6 +112,7 @@ public class ClienteDAL
         }
     }
     
+    /*
     public ArrayList<BLL.Sucursal> selectSucursales()
     {
         try
@@ -134,5 +139,5 @@ public class ClienteDAL
         {
             return null;
         }
-    }
+    }*/
 }
