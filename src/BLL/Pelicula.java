@@ -8,21 +8,19 @@ public class Pelicula
     private int codigo;
     private String nombre;
     private String sinopsis;
-    private String censura;
-    private Date fecProduccion;
-    private Date fecEstreno;
+    private int censura;
+    private String fecProduccion;
+    private String fecEstreno;
     private String pagWeb;
-    private String estado;
+    private int estado;
     private int codProductora;
     private int codGenero;
-    private int codReparto;
     private int codPais;
-    private int codCartelera;
 
     public Pelicula() {
     }
 
-    public Pelicula(int codigo, String nombre, String sinopsis, String censura, Date fecProduccion, Date fecEstreno, String pagWeb, String estado, int codProductora, int codGenero, int codReparto, int codPais, int codCartelera) {
+    public Pelicula(int codigo, String nombre, String sinopsis, int censura, String fecProduccion, String fecEstreno, String pagWeb, int estado, int codProductora, int codGenero, int codPais) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.sinopsis = sinopsis;
@@ -33,9 +31,7 @@ public class Pelicula
         this.estado = estado;
         this.codProductora = codProductora;
         this.codGenero = codGenero;
-        this.codReparto = codReparto;
         this.codPais = codPais;
-        this.codCartelera = codCartelera;
     }
 
     public int getCodigo() {
@@ -62,11 +58,11 @@ public class Pelicula
         this.sinopsis = sinopsis;
     }
 
-    public String getCensura() {
+    public int getCensura() {
         return censura;
     }
 
-    public void setCensura(String censura) {
+    public void setCensura(int censura) {
         this.censura = censura;
     }
 
@@ -78,14 +74,6 @@ public class Pelicula
         this.codGenero = codGenero;
     }
 
-    public int getCodReparto() {
-        return codReparto;
-    }
-
-    public void setCodReparto(int codReparto) {
-        this.codReparto = codReparto;
-    }
-
     public int getCodPais() {
         return codPais;
     }
@@ -94,27 +82,19 @@ public class Pelicula
         this.codPais = codPais;
     }
 
-    public int getCodCartelera() {
-        return codCartelera;
-    }
-
-    public void setCodCartelera(int codCartelera) {
-        this.codCartelera = codCartelera;
-    }
-
-    public Date getFecProduccion() {
+    public String getFecProduccion() {
         return fecProduccion;
     }
 
-    public void setFecProduccion(Date fecProduccion) {
+    public void setFecProduccion(String fecProduccion) {
         this.fecProduccion = fecProduccion;
     }
 
-    public Date getFecEstreno() {
+    public String getFecEstreno() {
         return fecEstreno;
     }
 
-    public void setFecEstreno(Date fecEstreno) {
+    public void setFecEstreno(String fecEstreno) {
         this.fecEstreno = fecEstreno;
     }
 
@@ -126,11 +106,11 @@ public class Pelicula
         this.pagWeb = pagWeb;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
@@ -140,5 +120,63 @@ public class Pelicula
 
     public void setCodProductora(int codProductora) {
         this.codProductora = codProductora;
+    }
+    
+    public int registroMaxPelicula(){
+        return new DAL.PeliculaDAL().maxPelicula();
+    }
+    
+    public int AgregarPelicula(
+            int codigo, String nombre, String sinopsis,
+            int censura, String fecProduccion, String fecEstreno,
+            String pagWeb, int estado, String codProductora,
+            String codGenero, String codPais){
+        Pelicula p = new Pelicula
+        (
+                codigo,
+                nombre,
+                sinopsis,
+                censura,
+                fecProduccion,
+                fecEstreno,
+                pagWeb,
+                estado, 
+                new DAL.ProductoraDAL().idProductora(codProductora), 
+                new DAL.GeneroDAL().idGenero(codGenero),
+                new DAL.PaisDAL().idPais(codPais)
+        );
+        int resultado = new DAL.PeliculaDAL().InsertarPelicula(p);
+        return resultado;
+    }
+
+    public int eliminarPelicula(int codigo){
+        return new DAL.PeliculaDAL().deletePelicula(codigo);
+    }
+    
+    public int ActualizarPelicula(
+            int codigo, String nombre, String sinopsis,
+            int censura, String fecProduccion, String fecEstreno,
+            String pagWeb, int estado, String codProductora,
+            String codGenero, String codPais){
+        Pelicula p = new Pelicula
+        (
+                codigo,
+                nombre,
+                sinopsis,
+                censura,
+                fecProduccion,
+                fecEstreno,
+                pagWeb,
+                estado, 
+                new DAL.ProductoraDAL().idProductora(codProductora), 
+                new DAL.GeneroDAL().idGenero(codGenero),
+                new DAL.PaisDAL().idPais(codPais)
+        );
+        int resultado = new DAL.PeliculaDAL().UpdatePelicula(p);
+        return resultado;
+    }
+    
+    public Pelicula buscarPelicula(int pelicula){
+        return new DAL.PeliculaDAL().buscarPelicula(pelicula);
     }
 }

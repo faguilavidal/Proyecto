@@ -37,44 +37,50 @@ public class ClienteDAL
         }
         catch(SQLException e)
         {
-            JOptionPane.showMessageDialog(null, e.getMessage());// hay un error
+            //JOptionPane.showMessageDialog(null, e.getMessage());
             return e.getErrorCode();
         }
     }
-    /*
-    public int updateSucursal(int codigo)
+    
+    public int UpdateCliente(BLL.Cliente c)
     {
         try
         {
-            String sql = "update sucursal set codigo = ? where codigo = ?";
+            String sql = "update cliente set nombre = ?, apellido = ?, direccion = ?, telefono = ?, fechanac = ?, idtipocliente = ?, idcomuna = ?, idsucursal = ? where rut = ?";
             PreparedStatement update = conn.crearSentencia(sql);
             
-            update.setInt(1, codigo);
+            update.setString(1, c.getNombre());
+            update.setString(2, c.getApellido());
+            update.setString(3, c.getDireccion());
+            update.setInt(4, c.getTelefono());
+            update.setString(5, c.getFechaNac());
+            update.setInt(6, c.getMembresia());
+            update.setInt(7, c.getComuna());
+            update.setInt(8, c.getSucursal());
+            update.setInt(9, c.getRut());
             
             return update.executeUpdate();
         }
         catch(SQLException e)
         {
+            JOptionPane.showMessageDialog(null, e.getMessage());
             return e.getErrorCode();
         }
-    }*/
+    }
     
-    /*public int deleteSucursal(int codigo)
-    {
+    public int deleteCliente(int rut){
         try
         {
-            String sql = "delete sucursal where codigo = ?";
+            String sql = "delete from cliente where rut = ?";
             PreparedStatement delete = conn.crearSentencia(sql);
-            
-            delete.setInt(1, codigo);
-            
+            delete.setInt(1, rut);
             return delete.executeUpdate();
         }
         catch(SQLException e)
         {
             return e.getErrorCode();
         }
-    }*/
+    }
     
     public BLL.Cliente buscarCliente(int rut)
     {
@@ -111,33 +117,4 @@ public class ClienteDAL
             return null;
         }
     }
-    
-    /*
-    public ArrayList<BLL.Sucursal> selectSucursales()
-    {
-        try
-        {
-            ArrayList<BLL.Sucursal> sucursales = new ArrayList<>();
-            String sql = "select * from sucursal";
-            PreparedStatement select = conn.crearSentencia(sql);
-            ResultSet sucursal = select.executeQuery();
-            
-            if(sucursal.next())
-            {
-                BLL.Sucursal s = new BLL.Sucursal();
-                s.setCodigo(sucursal.getInt(1));
-                s.setCodComuna(sucursal.getInt(2));
-                s.setCodMall(sucursal.getInt(3));
-                s.setDireccion(sucursal.getString(4));
-                
-                sucursales.add(s);
-            }
-            
-            return sucursales;
-        }
-        catch(SQLException e)
-        {
-            return null;
-        }
-    }*/
 }

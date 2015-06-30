@@ -1,6 +1,8 @@
 
 package BLL;
 
+import java.util.ArrayList;
+
 public class Pais 
 {
     private int codigo;
@@ -28,5 +30,23 @@ public class Pais
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    @Override
+    public String toString(){
+        return nombre;
+    }
+    
+    
+    public ArrayList<Pais> listadoPais(){
+        return new DAL.PaisDAL().selectPais();
+    }
+    
+    public int obtenerIdPais(String nombre){
+        return new DAL.PaisDAL().idPais(nombre);
+    }
+    
+    public String obtenerNombrePais(int id){
+        return new DAL.PaisDAL().obtenerNombrePais(id);
     }
 }

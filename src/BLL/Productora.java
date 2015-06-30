@@ -1,6 +1,8 @@
 
 package BLL;
 
+import java.util.ArrayList;
+
 public class Productora 
 {
     private int codigo;
@@ -30,5 +32,20 @@ public class Productora
         this.nombre = nombre;
     }
     
+    @Override
+    public String toString(){
+        return nombre;
+    }
     
+    public ArrayList<Productora> listadoProductora(){
+        return new DAL.ProductoraDAL().selectProductora();
+    }
+    
+    public int obtenerIdProductora(String nombre){
+        return new DAL.ProductoraDAL().idProductora(nombre);
+    }
+    
+    public String obtenerNombreProductora(int id){
+        return new DAL.ProductoraDAL().obtenerNombreProductora(id);
+    }
 }

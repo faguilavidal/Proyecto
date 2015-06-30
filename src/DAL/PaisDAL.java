@@ -1,3 +1,4 @@
+
 package DAL;
 
 import java.sql.PreparedStatement;
@@ -5,29 +6,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author Fabian Aguila
- */
-public class SucursalDAL {
+public class PaisDAL 
+{
     private Conexion conn;
     
-    public SucursalDAL(){
+    public PaisDAL()
+    {
         conn = new Conexion();
     }
     
-    public ArrayList<BLL.Sucursal> selectSucursales(){
+    public ArrayList<BLL.Pais> selectPais(){
         try
         {
-            ArrayList<BLL.Sucursal> Sucursal = new ArrayList<>();
-            String sql = "select * from sucursal order by nombre";
+            ArrayList<BLL.Pais> Pais = new ArrayList<>();
+            String sql = "select * from pais order by nombre";
             PreparedStatement select = conn.crearSentencia(sql);
             ResultSet listado = select.executeQuery();
             while(listado.next())
             {
-                Sucursal.add(new BLL.Sucursal(listado.getInt(1), listado.getString(2), listado.getString(3), listado.getInt(4), listado.getInt(5)));
+                Pais.add(new BLL.Pais(listado.getInt(1), listado.getString(2)));
             }
-            return Sucursal;
+            return Pais;
         }
         catch(SQLException e)
         {
@@ -35,12 +34,12 @@ public class SucursalDAL {
         }
     }
     
-    public int idSucursal(String Sucursal) {
+    public int idPais(String Pais) {
         try
         {
-            String sql = "select codsucursal from sucursal where nombre = ?";
+            String sql = "Select codpais from pais where nombre = ?";
             PreparedStatement obtener = conn.crearSentencia(sql);
-            obtener.setString(1, Sucursal);
+            obtener.setString(1, Pais);
             ResultSet valor = obtener.executeQuery();
             if(valor.next())
             {
@@ -57,10 +56,10 @@ public class SucursalDAL {
         }
     }
     
-    public String obtenerNombreSucursal(int id){
+    public String obtenerNombrePais(int id){
         try
         {
-            String sql = "Select nombre from sucursal where codsucursal = ?";
+            String sql = "Select nombre from pais where codpais = ?";
             PreparedStatement obtener = conn.crearSentencia(sql);
             obtener.setInt(1, id);
             ResultSet valor = obtener.executeQuery();

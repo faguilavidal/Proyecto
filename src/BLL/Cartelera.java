@@ -29,4 +29,8 @@ public class Cartelera
     public void setCodSucursal(int codSucursal) {
         this.codSucursal = codSucursal;
     }
+    
+    public int idCartelera(int sucursal){
+        return new DAL.CarteleraDAL().idCartelera(sucursal);
+    }
 }

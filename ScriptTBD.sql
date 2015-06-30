@@ -168,14 +168,6 @@ constraint pk_Director primary key(codigo),
 constraint fk_Pais_director foreign key(codPais) references pais(codpais)
 );
 
-create table cartelera
-(
-codigo int,
-codSucursal int not null,
-constraint pk_cartelera primary key(codigo),
-constraint fk_Sucursal_cartelera foreign key(codSucursal) references sucursal(codsucursal)
-);
-
 create table pelicula
 (
 idpelicula int,
@@ -189,13 +181,22 @@ estado int not null,
 codProductora int not null,
 codGenero int not null,
 codPais int not null,
-codCartelera int not null,
 constraint pk_Pelicula primary key(idpelicula),
 constraint fk_Productora_Pelicula foreign key(codProductora) references productora(codProductora),
 constraint fk_Genero_Pelicula foreign key(codGenero) references genero(codigo),
-constraint fk_Pais_Pelicula foreign key(codPais) references pais(codPais),
-constraint fk_Cartelera_Pelicula foreign key(codCartelera) references cartelera(codigo)
+constraint fk_Pais_Pelicula foreign key(codPais) references pais(codPais)
 );
+
+create table cartelera
+(
+codigo int,
+codSucursal int not null,
+codpelicula int not null,
+constraint pk_cartelera primary key(codigo),
+constraint fk_Sucursal_cartelera foreign key(codSucursal) references sucursal(codsucursal),
+constraint fk_pelicula_cartelera foreign key(codpelicula) references pelicula(idpelicula)
+);
+
 
 create table actorPelicula
 (
@@ -282,3 +283,29 @@ insert into tipocliente values (2,'Premium');
 insert into tipocliente values (3,'Estudiantes');
 insert into tipocliente values (4,'Tercera Edad');
 
+insert into productora values (1,'Warner Bros');
+insert into productora values (2,'Paramount ');
+insert into productora values (3,'Universal');
+insert into productora values (4,'DreamWorks');
+insert into productora values (5,'Lionsgate ');
+insert into productora values (6,'Century Fox');
+insert into productora values (7,'Walt Disney');
+
+
+insert into pais values (1,'Estados Unidos');
+insert into pais values (2,'España');
+insert into pais values (3,'Chile');
+insert into pais values (4,'Francia');
+insert into pais values (5,'Argentina');
+insert into pais values (6,'India');
+insert into pais values (7,'Alemania');
+insert into pais values (8,'Rusia');
+
+insert into genero values (1,'Terror');
+insert into genero values (2,'Accion');
+insert into genero values (3,'Drama');
+insert into genero values (4,'Comedia');
+insert into genero values (5,'Musical');
+insert into genero values (6,'Animacion');
+insert into genero values (7,'Ciencia Ficcion');
+insert into genero values (8,'Suspenso');

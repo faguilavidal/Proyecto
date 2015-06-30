@@ -115,15 +115,18 @@ public class Cliente
     public Cliente buscarCliente(int Cliente){
         return new DAL.ClienteDAL().buscarCliente(Cliente);
     }
-    /*
-     public int actualizarBilletera(int billetera, String username){
-        int resultado = new DAL.UserDAL().updateBilleteraUser(billetera,username);
+    
+     public int ActualizarClienteBLL(int rut, String nombre, String apellido, String direccion, int telefono, String fechaNac, String membresia, String comuna, String sucursal){
+        Cliente c = new Cliente( rut,  nombre,  apellido,  direccion,  telefono,  fechaNac, 
+                                new DAL.TipoClienteDAL().idTipoCliente(membresia),
+                                new DAL.ComunaDAL().idComuna(comuna),
+                                new DAL.SucursalDAL().idSucursal(sucursal));
+        int resultado = new DAL.ClienteDAL().UpdateCliente(c);
         return resultado;
-     }
+    }
      
-      public ArrayList<User> listadoUser(){
-        return new DAL.UserDAL().ConsultarUser();
-     }
-    */
+     public int eliminarCliente(int rut){
+        return new DAL.ClienteDAL().deleteCliente(rut);
+    }
     
 }
